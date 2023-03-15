@@ -1,7 +1,7 @@
 function Header(){
     return (
-        <div>
-            <h1>Movies Review</h1>
+        <div className="header">
+            <h1>useState Hook</h1>
         </div>
     )
 }

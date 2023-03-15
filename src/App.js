@@ -1,30 +1,37 @@
 import './App.css';
 import Header from './Components/Header';
-import Footer from './Components/Footer'
-import Student from './Components/Student';
-import movies from './movies.json'
-import Movie from './Components/Movie';
+import movies from './movies.json';
+import React, {useState} from 'react'
 
 function App() {
+  const [num, setNum] = useState(0)
+
+  function inc(){
+    setNum(num + 1)
+  }
+
+  function dec(){
+    if(num<0){
+      alert("The number is going on towards negative")
+      setNum(num-1)
+    }else{
+    setNum(num-1)
+  }
+  }
+  function res(){
+    setNum(0)
+  }
+
   return (
     <div className="App">
       <Header/>
-      {/* <Student name="MNadeem" age={23}/>
-      <Student name="MAbdullah" age={34}/>
-      <Footer/> */}
-      <div className="main">
-        {
-         movies.map((element, index) => {
-          return(                                                   
-             <Movie key={index}
-                    title={element.Title}
-                    year={element.Year}
-                    time={element.Runtime}
-                    img={element.Poster}
-              />
-          )
-         })
-        }
+     <div className="main">
+      <h1 className="heading">{num}</h1>
+      </div> 
+      <div className='button'>
+        <button className='btn' onClick={inc}>Increment</button>
+        <button className='btn' onClick={dec}>Decrement</button>
+        <button className='btn' onClick={res}>Reset </button>
       </div>
     </div>
   );
