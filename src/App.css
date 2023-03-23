@@ -10,7 +10,7 @@ h1{
   color: white;
   padding: 8px;
   width: 100%;
-  justify-content: center;
+  justify-content:space-around;
   display: flex;
   align-items: center;
 }
@@ -18,5 +18,11 @@ h1{
 .data{
   display: flex;
   justify-content: space-between;
-  padding: 5px;
+  padding: 8px;
+}
+
+.btn{
+  background-color: greenyellow;
+  margin: 5px;
+  border-radius: 5px;
 }
