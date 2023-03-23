@@ -1,25 +1,23 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Header from './Component/Header';
+import ComA from './Component/ComA';
+import { useState, createContext } from 'react';
+
+const AppState = createContext();
 
 function App() {
+  const [data, setData] = useState("Web3Mantra")
+  const [name, setName] = useState({MyName: "Nadeem", age: 24})
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+       <AppState.Provider value={{data,name}}>   {/* we are passing here an object to send multiple data */}
+        <Header/>
+        <ComA />
+      </AppState.Provider>
     </div>
   );
 }
 
 export default App;
+export {AppState}
