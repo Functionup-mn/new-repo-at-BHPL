@@ -1,5 +1,8 @@
-
-h1{
+.myApp{
+  background-color: aquamarine;
+  padding: 5px;
+}
+h2{
   margin: 0px;
 }
 
@@ -10,21 +13,4 @@ h1{
   text-align: center;
 }
 
-.compa{
-  background-color: aqua;
-  padding: 5px;
-  margin: 8px;
-}
-
-.compb{
-  background-color:rgb(243, 3, 3);
-  padding: 5px;
-  margin: 8px;
-}
-
-.compc{
-  background-color: rgb(204, 201, 11);
-  padding: 5px;
-  margin: 8px;
-}
 
