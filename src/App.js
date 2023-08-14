@@ -16,7 +16,7 @@ function App() {
     getData()
 
     document.title = `(${state}) Emplyes Online`
-  }, [state])  // this is called  dependencies
+  }, [state])  // this is called  dependencies, we can also mentioned pros as a dependencies(props.any)
 
 
   return (
