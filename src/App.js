@@ -1,40 +1,40 @@
 import './App.css';
-import Header from './Components/Header';
-import {useState, useEffect} from 'react';
+import {Table} from 'react-bootstrap'
 
 function App() {
 
-  const [state, setState] = useState(10)
-  const [data, setData] = useState([])
-
-  useEffect(() => {
-    async function getData(){
-      const get = await fetch(`https://hub.dummyapis.com/employee?noofRecords=${state}&idStarts=1001`)
-      const res = await get.json()
-      setData(res)
-    }
-    getData()
-
-    document.title = `(${state}) Emplyes Online`
-  }, [state])  // this is called  dependencies, we can also mentioned pros as a dependencies(props.any)
-
-
+  const users = [
+    {name: 'John', email: 'john@gmail.com', contact: 1231},
+    {name: "Adam", email: 'adam@gmail.com', contact: 3141},
+    {name: 'peter', email: 'peter@gmail.com', contact: 1616}
+  ]
   return (
-      <div>
-        <Header/>
-        <button onClick={() => setState(state+5)}>Click Me {state}</button>
-        {
-          data.map((element, index) => {
-           return( 
-            <div className='data' key={index}>
-              <h5>{element.firstName}</h5>
-              <h5>{element.lastName}</h5>
-              <h5>{element.email}</h5>
-            </div>
-           )
-          })
-        }
-      </div>
+    <div className='App'>
+      <h1>List with Bootsrtap Table</h1>
+
+      <Table striped hover bordered variant='dark'>
+        <tbody>
+          <tr>
+          <td>S.No.</td>
+          <td>Name</td>
+          <td>Email</td>
+          <td>Contact</td>
+          
+          </tr>
+          {
+             users.map((item,i) =>
+                 <tr key={i}>
+                  <td>{++i}</td>
+                  <td>{item.name}</td>
+                  <td>{item.email}</td>
+                  <td>{item.contact}</td>
+                 </tr>
+             )
+          }
+        </tbody>
+      </Table>
+
+    </div>
   )
 }
 
