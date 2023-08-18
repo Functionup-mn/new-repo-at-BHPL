@@ -1,19 +1,20 @@
-import React, { useRef } from 'react';
-import User from './Component/User';
+import React, { useState } from 'react';
+import './App.css'
+
 
 function App(){
-  
-  let inputRef = useRef(null)
-    function handleInput(){
-      inputRef.current.value = "1000"
-      inputRef.current.style.color = "yellow"                // foward ref hook is used to control the        
-      inputRef.current.style.backgroundColor = 'black'   // input field which is present in the child component
-    }
+                                      // Controlled components: when input fields are controlled through the state in React then this components are called as controlled components.
+  const [val, setVal] = useState('');
+                                          
+  function handleSubmit(e){
+          setVal(e.preventDefault());
+  }
   return (
     <div className='App'>
-      <h1>Learn About forwardRef in React</h1>                
-      <User ref={inputRef}/>
-      <button onClick={handleInput}>Handle Input</button>
+      <h1>Controled Component in React</h1> 
+      <h2>Value: {val}</h2>               
+      <input type="text" value={val} onChange={((e)=> setVal(e.target.value))} />
+      <button type='submit' onClick={handleSubmit}> Submit  </button>
     </div>
   )
 }
