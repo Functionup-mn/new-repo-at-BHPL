@@ -9,6 +9,7 @@ const Nav = () => {
         <NavLink to="/about">About Page</NavLink>
         <br />
         <NavLink to= "/contact">Contact Page</NavLink>
+        <br />
     </div>
   )
 }
