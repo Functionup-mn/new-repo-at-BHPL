@@ -1,42 +1,45 @@
-import React, { useState } from 'react';
-import './App.css'
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  NavLink,
+  Route,
+} from "react-router-dom";
+import "./App.css";
 
-
-function App(){            
-                            // Higher-order components or HOC is the advanced method of reusing the component functionality logic. It simply takes the original component and returns the enhanced component.
- 
+function App() {
   return (
-    <div className='App'>
-      <h1>  High Order Component in React</h1> 
-        <HOCRed cmp={Counter}/>
-        <HOCGreen cmp={Counter}/>
-        <HOCYellow cmp={Counter}/>
+    <div className="App">
+      <h1>Routing Basics</h1>
+      <Router>
+        <NavLink to="/">Home Page</NavLink>
+        <br />
+        <NavLink to="/about">About Page</NavLink>
+        <Routes>
+          <Route exact path="/" element={<Home />}></Route>
+          <Route exact path="/about" element={<About />}></Route>
+        </Routes>
+      </Router>
     </div>
-  )
+  );
 }
 
-function HOCRed(props){
-  
-  return <h2 style={{backgroundColor: 'red', width:'300px'}}>Red<props.cmp/></h2>
-}
-
-function HOCGreen(props){
-  
-  return <h2 style={{backgroundColor: 'green', width:'300px'}}>Green<props.cmp/></h2>
-}
-function HOCYellow(props){
-  
-  return <h2 style={{backgroundColor: 'yellow', width:'300px'}}>Yellow<props.cmp/></h2>
-}
-
-function Counter(){
-  const [count, setCount] = useState(0);
+function Home() {
   return (
     <div>
-      <h1>Count: {count}</h1>
-      <button onClick={(()=> setCount(count+1))}>Update Count</button>
+      <h1>Home Page</h1>
+      <p>This is Home Page of my website</p>
     </div>
-  )
+  );
 }
 
-export default App; 
+function About() {
+  return (
+    <div>
+      <h1>About Page</h1>
+      <p>This is About Page of my website</p>
+    </div>
+  );
+}
+
+export default App;
